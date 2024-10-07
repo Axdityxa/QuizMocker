@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# **Quiz App - Next.js with Clerk, Prisma, MongoDB & Sanity Integration**
 
-## Getting Started
+This project is a **Quiz Application** built using **Next.js** as the front-end framework. It integrates with **Clerk** for authentication, **Prisma** as the ORM for database management, **MongoDB** as the database, and **Sanity** for content management.
 
-First, run the development server:
+## **Table of Contents**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Project Overview](#project-overview)
+- [Tech Stack](#tech-stack)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Project](#running-the-project)
+- [Environment Variables](#environment-variables)
+- [Deployment](#deployment)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## **Project Overview**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The **Quiz App** allows users to log in, take quizzes, and view their scores. User authentication is handled by Clerk, content (questions, answers) is managed via Sanity, and the app stores quiz results in a MongoDB database using Prisma for database interaction.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## **Tech Stack**
 
-## Learn More
+- **Frontend**: [Next.js](https://nextjs.org/)
+- **Authentication**: [Clerk](https://clerk.dev/)
+- **Database**: [MongoDB](https://www.mongodb.com/)
+- **ORM**: [Prisma](https://www.prisma.io/)
+- **Content Management**: [Sanity](https://www.sanity.io/)
+- **Styling**: CSS modules, Tailwind CSS (or whatever you are using)
+- **Deployment**: Netlify/Vercel
 
-To learn more about Next.js, take a look at the following resources:
+## **Features**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- User authentication via Clerk (Sign-up, Sign-in)
+- Quiz management via Sanity CMS
+- Database interaction using Prisma and MongoDB
+- User-specific quiz scores stored and retrieved
+- Admin features to create/edit quiz questions (if applicable)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## **Getting Started**
 
-## Deploy on Vercel
+### **Prerequisites**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Before you begin, ensure you have the following tools installed on your machine:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Node.js** (v16 or higher)
+- **npm** or **yarn**
+- **MongoDB Atlas Account** (for cloud database)
+- **Clerk Account** (for authentication)
+- **Sanity Account** (for content management)
+
+### **Installation**
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/your-username/quiz-app.git
+   cd quiz-app
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+
+   or
+
+   yarn install
+
+### **Running the Project**
+
+1. Set up environment variables: Create a .env file in the root directory and add the required environment variables (see below for details).
+
+2. Generate Prisma client:
+  
+  ```bash
+  npx prisma generate
+
+3. Run the development server:
+
+  ```bash
+  npm run dev
+
+The app will be running at http://localhost:3000.
+
+### **Environment Variables**
+You'll need to create a .env file and a .env.local file in the root directory. Below are the required environment variables:
+
+**.env**
+
+  ```bash
+  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+  CLERK_SECRET_KEY=your_clerk_secret_key
+
+  NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+  NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+  NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+  NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+
+  DATABASE_URL="mongodb+srv://username:password@cluster.mongodb.net/dbname?retryWrites=true&w=majority"
