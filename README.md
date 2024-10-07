@@ -1,4 +1,4 @@
-# **Quiz App - Next.js with Clerk, Prisma, MongoDB & Sanity Integration**
+# **QuizMocker - Next.js with Clerk, Prisma, MongoDB & Sanity Integration**
 
 This project is a **Quiz Application** built using **Next.js** as the front-end framework. It integrates with **Clerk** for authentication, **Prisma** as the ORM for database management, **MongoDB** as the database, and **Sanity** for content management.
 
@@ -63,10 +63,12 @@ Before you begin, ensure you have the following tools installed on your machine:
 
    ```bash
    npm install
+   ```
 
    or
-
+   ```bash
    yarn install
+   ```
 
 ### **Running the Project**
 
@@ -74,28 +76,80 @@ Before you begin, ensure you have the following tools installed on your machine:
 
 2. Generate Prisma client:
   
-  ```bash
-  npx prisma generate
-
+   ```bash
+   npx prisma generate
+   ```
 3. Run the development server:
 
-  ```bash
-  npm run dev
+   ```bash
+   npm run dev
+   ```
 
-The app will be running at http://localhost:3000.
+   The app will be running at http://localhost:3000.
 
 ### **Environment Variables**
-You'll need to create a .env file and a .env.local file in the root directory. Below are the required environment variables:
+   You'll need to create a .env file and a .env.local file in the root directory. Below are the required environment variables:
 
 **.env**
 
-  ```bash
-  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
-  CLERK_SECRET_KEY=your_clerk_secret_key
+   ```bash
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+   CLERK_SECRET_KEY=your_clerk_secret_key
 
-  NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-  NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-  NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
-  NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+   NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+   NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+   NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+   NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
 
-  DATABASE_URL="mongodb+srv://username:password@cluster.mongodb.net/dbname?retryWrites=true&w=majority"
+   DATABASE_URL="mongodb+srv://username:password@cluster.mongodb.net/dbname?retryWrites=true&w=majority"
+   ```
+**.env.local**
+
+   ```bash
+  NEXT_PUBLIC_SANITY_PROJECT_ID=your_sanity_project_id
+  NEXT_PUBLIC_SANITY_DATASET=production
+   ```
+  Note: Replace the placeholder values (like your_clerk_publishable_key, username, password, your_sanity_project_id) with your 
+  actual credentials.
+
+### **Deployment**
+
+**Deploying to Netlify:**
+1. Build Command: In your Netlify settings, use the following build command:
+
+   ```bash
+   prisma generate && next build
+   ```
+2. Publish Directory:
+
+   ```bash
+   .next
+   ```
+3. Environment Variables: Make sure to add all the necessary environment variables in the Netlify environment settings panel.
+
+### **Folder Structure**
+   ```bash
+   ├── prisma                # Prisma schema and migration files
+   │   └── schema.prisma
+   ├── public                # Public assets (images, etc.)
+   ├── src
+   │   ├── components        # React components
+   │   ├── pages             # Next.js pages
+   │   ├── styles            # Global and component-level styles
+   │   └── utils             # Helper functions
+   ├── .env                  # Environment variables
+   ├── .env.local            # Local environment variables
+   ├── package.json          # NPM scripts and dependencies
+   ├── README.md             # This file
+   ```
+### **Contributing**
+Contributions are welcome! Here's how you can help:
+1. Fork the repository.
+2. Create a feature branch: git checkout -b feature-name.
+3. Commit your changes: git commit -m 'Add new feature'.
+4. Push to the branch: git push origin feature-name.
+5. Open a pull request.
+
+
+
+
