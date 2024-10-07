@@ -19,7 +19,7 @@ This project is a **Quiz Application** built using **Next.js** as the front-end 
 
 ## **Project Overview**
 
-The **Quiz App** allows users to log in, take quizzes, and view their scores. User authentication is handled by Clerk, content (questions, answers) is managed via Sanity, and the app stores quiz results in a MongoDB database using Prisma for database interaction.
+The **QuizMocker** allows users to log in, take quizzes, and view their scores. User authentication is handled by Clerk, content (questions, answers) is managed via Sanity, and the app stores quiz results in a MongoDB database using Prisma for database interaction.
 
 ## **Tech Stack**
 
@@ -149,6 +149,9 @@ Contributions are welcome! Here's how you can help:
 3. Commit your changes: git commit -m 'Add new feature'.
 4. Push to the branch: git push origin feature-name.
 5. Open a pull request.
+
+### **License**
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
 
 
