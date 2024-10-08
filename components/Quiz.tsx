@@ -30,8 +30,12 @@ const Quiz = ({ questions, userId }: QuizProps) => {
   const [randomQuestions, setRandomQuestions] = useState<typeof questions>([]);
 
   useEffect(() => {
-    const randomQuestions = questions.sort(() => Math.random() - 0.5).slice(0, 10);
-    setRandomQuestions(randomQuestions);
+    if (questions && questions.length) {
+      const randomizedQuestions = [...questions]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 10);
+      setRandomQuestions(randomizedQuestions);
+    }
   }, [questions]);
 
   useEffect(() => {

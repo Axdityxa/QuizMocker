@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-  <ClerkProvider>
+  <ClerkProvider signInFallbackRedirectUrl="/dashboard">
     <html lang="en">
       <body className={`${raleway.className} min-h-screen`}>
         <LayoutProvider>{children}</LayoutProvider>

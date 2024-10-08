@@ -17,9 +17,17 @@ async function getData() {
 }
 
 const page = async () => {
-  const questions = await getData()
-  const user = await fetchUsers()
-  const userId = user?.data.user.id;
+  let questions = [];
+  let user;
+
+  try {
+    questions = await getData();
+    user = await fetchUsers();
+  } catch (error) {
+    console.error("Error fetching data: ", error);
+  }
+
+  const userId = user?.data?.user?.id || ""; // Make sure userId is properly handled
   return (
     <>
       <Quiz questions={questions} userId={userId} />
