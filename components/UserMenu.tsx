@@ -13,7 +13,7 @@ const UserMenu = () => {
 
   const links = [
     { name: "Stats", path: "/stats" },
-    { name: "Leaderboards", path: "/leaderboards" },
+    { name: "Leaderboard", path: "/leaderboards" },
   ];
 
   return (
@@ -33,7 +33,7 @@ const UserMenu = () => {
                 href={link.path}
                 onClick={() => setOpenUserMenu(false)}
               >
-                <li className="hover:underline">
+                <li className=" px-2 py-2 hover:scale-105 rounded-md shadow transition-colors duration-500 hover:bg-qborder/80">
                   {link.name}
                 </li>
               </Link>

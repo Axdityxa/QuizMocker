@@ -353,7 +353,7 @@ const Quiz = ({ questions, userId }: QuizProps) => {
                 </div>
                 <button
                   onClick={restartQuiz}
-                  className="bg-primary text-white px-10 py-2 rounded-md mt-8"
+                  className="bg-primary text-white px-10 py-2 rounded-md mt-8 shadow transition-colors duration-500 hover:bg-primary/80"
                 >
                   Restart Test
                 </button>
