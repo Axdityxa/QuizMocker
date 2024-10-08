@@ -26,7 +26,7 @@ const UserMenu = () => {
         {/* <CgMenuGridO /> */}
         <HiMenuAlt2 />
         {openUserMenu && (
-          <ul className="absolute shadow bg-qborder z-[99] top-7 sm:left-[-60px] left-[-80px] p-3 text-dark rounded-md text-center">
+          <ul className="absolute shadow bg-qborder z-[99] top-7 sm:left-[-90px] left-[-80px] p-3 text-dark rounded-md text-center">
             {links.map((link, index) => (
               <Link
                 key={index}
