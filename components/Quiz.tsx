@@ -52,9 +52,9 @@ const Quiz = ({ questions, userId }: QuizProps) => {
 
   useEffect(() => {
     const handleBeforeUnload = (event: BeforeUnloadEvent) => {
-      
+
       event.preventDefault();
-      
+
       return;
     };
 
@@ -64,7 +64,7 @@ const Quiz = ({ questions, userId }: QuizProps) => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
   }, []);
-  
+
 
   const startTimer = () => {
     setTimerRunning(true);
@@ -99,33 +99,33 @@ const Quiz = ({ questions, userId }: QuizProps) => {
 
   const nextQuestion = () => {
     if (randomQuestions.length > 0 && randomQuestions[activeQuestion]) {
-        const { correctAnswer } = randomQuestions[activeQuestion];
-        // Check if an answer was selected
-        if (selectedAnswers[activeQuestion] !== undefined) {
-            // Only update score and counters if an answer was chosen
-            if (selectedAnswers[activeQuestion] === correctAnswer) {
-                setResults((prev) => ({
-                    ...prev,
-                    score: prev.score + 5,
-                    correctAnswers: prev.correctAnswers + 1,
-                }));
-            } else {
-                setResults((prev) => ({
-                    ...prev,
-                    wrongAnswers: prev.wrongAnswers + 1,
-                }));
-            }
-        }
-        if (activeQuestion !== randomQuestions.length - 1) {
-            setActiveQuestion((prev) => prev + 1);
+      const { correctAnswer } = randomQuestions[activeQuestion];
+      // Check if an answer was selected
+      if (selectedAnswers[activeQuestion] !== undefined) {
+        // Only update score and counters if an answer was chosen
+        if (selectedAnswers[activeQuestion] === correctAnswer) {
+          setResults((prev) => ({
+            ...prev,
+            score: prev.score + 5,
+            correctAnswers: prev.correctAnswers + 1,
+          }));
         } else {
-            setShowResults(true);
-            stopTimer();
-            saveQuizResults();
+          setResults((prev) => ({
+            ...prev,
+            wrongAnswers: prev.wrongAnswers + 1,
+          }));
         }
+      }
+      if (activeQuestion !== randomQuestions.length - 1) {
+        setActiveQuestion((prev) => prev + 1);
+      } else {
+        setShowResults(true);
+        stopTimer();
+        saveQuizResults();
+      }
     }
     setChecked(false);
-};
+  };
 
   const previousQuestion = () => {
     if (activeQuestion !== 0) {
@@ -243,7 +243,7 @@ const Quiz = ({ questions, userId }: QuizProps) => {
             </div>
           </div>
         ) : !quizStarted ? (
-          <div className="text-center">
+          <div className="text-center shadow border w-full sm:w-2/3 md:w-1/2 lg:w-1/3 mx-auto px-5 py-5 rounded-md">
             <h2 className="text-2xl font-bold mb-4">Welcome to the mock test!</h2>
             <div className="mb-4">
               <label className="mr-2" htmlFor="timerSetting">
@@ -258,6 +258,9 @@ const Quiz = ({ questions, userId }: QuizProps) => {
                 className="border rounded px-2"
               />
             </div>
+            <p className="mb-4 text-sm text-gray-500">
+              Choose the time as per your requirements.
+            </p>
             <button
               onClick={startQuiz}
               className="bg-primary text-white px-4 py-2 rounded shadow transition-colors duration-500 hover:bg-primary/80"

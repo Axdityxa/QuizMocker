@@ -33,7 +33,7 @@ const UserMenu = () => {
                 href={link.path}
                 onClick={() => setOpenUserMenu(false)}
               >
-                <li className=" px-2 py-2 hover:scale-105 rounded-md shadow transition-colors duration-500 hover:bg-qborder/80">
+                <li className=" px-2 py-2 hover:scale-105 rounded-md shadow transition-colors duration-500 hover:bg-navbar/80">
                   {link.name}
                 </li>
               </Link>
