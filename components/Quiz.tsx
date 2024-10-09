@@ -193,7 +193,7 @@ const Quiz = ({ questions, userId }: QuizProps) => {
     return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
   };
 
-  if (randomQuestions.length === 0) return <div>Loading...</div>;
+  if (randomQuestions.length === 0) return <div className="flex text-center justify-center">Loading...</div>;
 
   const { question, answers } = randomQuestions[activeQuestion] || { question: "", answers: [] };
 
@@ -340,7 +340,7 @@ const Quiz = ({ questions, userId }: QuizProps) => {
               </>
             ) : (
               <div className="text-center">
-                <h3 className="text-2xl uppercase mb-10">Results 📈</h3>
+                <h3 className="text-2xl uppercase mb-10 font-bold">Results 📈</h3>
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-10">
                   <StatCard
                     title="Percentage"

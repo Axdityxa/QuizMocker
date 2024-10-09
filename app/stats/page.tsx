@@ -4,8 +4,9 @@ import { fetchUsers } from "../(auth)/actions/fetchUsers";
 const page = async () => {
   const currentUser = await fetchUsers();
   return (
-    <div className="py-20">
-      <div className="text-center mb-10 text-2xl">
+    <div className="py-20 -mt-20 ">
+      <div className="text-center mb-10 text-2xl  font-bold ">
+
         <h1>{currentUser?.data?.user.username}'s Stats 📊</h1>
       </div>
       <div className="max-w-[1500px] mx-auto w-[90%] grid sm:grid-cols-3 gap-10 justify-center">
